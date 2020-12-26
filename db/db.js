@@ -11,7 +11,7 @@ mongoose.connect(
   dbUri,
   {
     useNewUrlParser: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex: true,
     useUnifiedTopology: true,
   },
