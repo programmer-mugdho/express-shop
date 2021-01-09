@@ -7,6 +7,7 @@ const db = require("./db/db");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const shopsRouter = require("./routes/shops");
+const { isAuthenticated } = require("./controllers/User.controller");
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use("/", indexRouter);
+app.use("/shops", isAuthenticated, shopsRouter);
 app.use("/users", usersRouter);
-app.use("/shops", shopsRouter);
 
 module.exports = app;
